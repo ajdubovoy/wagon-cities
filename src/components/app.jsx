@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../../assets/stylesheets/application.scss'
+
 const cities = [
   { name: 'Paris', address: '16 Villa Gaudelet, 75011 Paris', slug: 'paris' },
   { name: 'London', address: '14-22 Elder St, London E1 6BT', slug: 'london' },
