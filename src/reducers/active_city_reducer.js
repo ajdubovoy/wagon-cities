@@ -1,15 +1,15 @@
-const citiesReducer = (state, action) => {
+const activeCityReducer = (state, action) => {
   if (state === undefined) {
     // Reducer initialization
-    return [];
+    return null;
   }
 
   switch (action.type) {
-    case 'SET_CITIES':
+    case 'SET_ACTIVE_CITY':
       return action.payload;
     default:
       return state;
   }
 };
 
-export default citiesReducer;
+export default activeCityReducer;

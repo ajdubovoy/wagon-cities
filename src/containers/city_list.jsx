@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setCities } from '../actions';
+import { setCities, setActiveCity } from '../actions';
 import City from './city';
 
 function mapStateToProps(state) {
   return {
-    cities: state.cities
+    cities: state.cities,
+    activeCity: state.activeCity
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { setCities },
+    { setCities, setActiveCity },
     dispatch
   );
 }
@@ -24,11 +25,11 @@ class CityList extends Component {
 
   render() {
     return (
-      <div className="city-list col-sm-4">
+      <div className="city-list">
         {this.props.cities.map((city) => {
           return (
             <div className="list-group-item">
-              <City city={city} />
+              <City city={city} onClick={() => this.props.setActiveCity(city)} key={city.name} />
             </div>
           );
         })}
